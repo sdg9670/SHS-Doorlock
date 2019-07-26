@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "396461131536",
+    "firebase_url": "https://nabot-application.firebaseio.com",
+    "project_id": "nabot-application",
+    "storage_bucket": "nabot-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396461131536:android:7fac9dd90683a345",
+        "android_client_info": {
+          "package_name": "com.example.nabot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396461131536-99nmb2n3e8msqilq0tl6h2e66sfddbth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaLXHLjky-tCuyTkPL5ltmgwkdqDyh1TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396461131536-99nmb2n3e8msqilq0tl6h2e66sfddbth.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "396461131536-c54204gomv3q5r0qoqj56tn1vrk77jc1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nabot"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396461131536:android:1b9265b3c0f53fb1",
+        "android_client_info": {
+          "package_name": "com.example.raspberrycamerabeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396461131536-uv3njldtbi3829qnqpqiamiurcc32rdk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.raspberrycamerabeta",
+            "certificate_hash": "fac0f9f13ca36028977f39b69af6cb76a814cd94"
+          }
+        },
+        {
+          "client_id": "396461131536-99nmb2n3e8msqilq0tl6h2e66sfddbth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaLXHLjky-tCuyTkPL5ltmgwkdqDyh1TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396461131536-99nmb2n3e8msqilq0tl6h2e66sfddbth.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "396461131536-c54204gomv3q5r0qoqj56tn1vrk77jc1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nabot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
