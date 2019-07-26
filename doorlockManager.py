@@ -76,7 +76,7 @@ class DoorLock(threading.Thread):
 
 				self.lcdControl.lcd_clear()
 				self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-				self.lcdControl.lcd_display_string("Waiting finger", 2)
+				self.lcdControl.lcd_display_string("Waiting Finger", 2)
 
 				while self.f.readImage() == False and self.mode == 'check':
 					pass
@@ -86,7 +86,7 @@ class DoorLock(threading.Thread):
 				print('Remove finger...')
 				self.lcdControl.lcd_clear()
 				self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-				self.lcdControl.lcd_display_string("Remove finger...", 2)
+				self.lcdControl.lcd_display_string("Remove Finger...", 2)
 				time.sleep(2)
 				result = self.f.searchTemplate()
 				positionNumber = result[0]
@@ -126,7 +126,8 @@ class DoorLock(threading.Thread):
 
 					self.lcdControl.lcd_clear()
 					self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-					self.lcdControl.lcd_display_string("Falied FingerPrint", 2)
+					self.lcdControl.lcd_display_string("Falied Finger", 2)
+					time.sleep(1)
 
 					now = datetime.datetime.now()
 					timenow = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -145,7 +146,7 @@ class DoorLock(threading.Thread):
 			print('Waiting for finger...')
 			self.lcdControl.lcd_clear()
 			self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-			self.lcdControl.lcd_display_string("Waiting finger...", 2)
+			self.lcdControl.lcd_display_string("Waiting Finger...", 2)
 			while self.f.readImage() == False and self.mode == 'enroll':
 				pass
 			if self.mode != 'enroll':
@@ -155,12 +156,12 @@ class DoorLock(threading.Thread):
 			print('Remove finger...')
 			self.lcdControl.lcd_clear()
 			self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-			self.lcdControl.lcd_display_string("Remove finger...", 2)
+			self.lcdControl.lcd_display_string("Remove Finger...", 2)
 
 			print('Waiting for same finger again...')
 			self.lcdControl.lcd_clear()
 			self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
-			self.lcdControl.lcd_display_string("Same finger again", 2)
+			self.lcdControl.lcd_display_string("SameFinger again", 2)
 
 			while self.f.readImage() == False and self.mode == 'enroll':
 				pass
@@ -169,12 +170,23 @@ class DoorLock(threading.Thread):
 			self.f.convertImage(0x02)
 
 			time.sleep(2)
+
+			if self.f.compareCharacteristics() == 0:
+				self.lcdControl.lcd_clear()
+				self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
+				self.lcdControl.lcd_display_string("Do not match", 2)
+				time.sleep(1)
 			if self.f.compareCharacteristics() == 0:
 				raise Exception('Fingers do not match')
+
 
 			self.f.createTemplate()
 			positionNumber = self.f.storeTemplate()
 			print('#' + str(positionNumber))
+			self.lcdControl.lcd_clear()
+			self.lcdControl.lcd_display_string("mode: " + self.mode, 1)
+			self.lcdControl.lcd_display_string("Success #" + str(positionNumber), 2)
+			time.sleep(1)
 			self.sc.sndMsg('doorlock\tenroll\t' + str(positionNumber))
 
 			time.sleep(2)
